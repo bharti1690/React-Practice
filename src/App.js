@@ -1,7 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { SearchInput } from './search-input';
+import { useState } from 'react';
 
 function App() {
+
+  const [isPreviewShown,setIsPreviewShown] = useState(false)
+
+  const handleButton =(e)=>{
+    e.preventDefault();
+
+     if(isPreviewShown)
+        setIsPreviewShown(false)
+     else 
+        setIsPreviewShown(true) ;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +31,10 @@ function App() {
         >
           Learn React
         </a>
+        <br></br>
+        <button type="submit" onClick={handleButton}>SearchInput</button>
+        {isPreviewShown && <SearchInput/>}
+       
       </header>
     </div>
   );
